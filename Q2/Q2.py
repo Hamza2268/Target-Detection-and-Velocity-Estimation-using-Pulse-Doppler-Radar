@@ -241,7 +241,7 @@ plt.grid(True, alpha=0.3)
 plt.xlim([0, 20])
 
 plt.tight_layout()
-plt.savefig('comparison_methods_radar_detection.png', dpi=300, bbox_inches='tight')
+plt.savefig('./Q2/comparison_methods_radar_detection.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # ============================================================================

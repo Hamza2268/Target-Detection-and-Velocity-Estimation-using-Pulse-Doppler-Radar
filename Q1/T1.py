@@ -99,7 +99,7 @@ plt.ylabel("Amplitude", fontsize=12, fontweight='bold')
 plt.title("Transmitted Rectangular Pulse (Real Part)", fontsize=14, fontweight='bold')
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('plot115_transmitted_pulse.png', dpi=300, bbox_inches='tight')
+plt.savefig('./Q1/plot115_transmitted_pulse.png', dpi=300, bbox_inches='tight')
 plt.show()
 print("✓ Plot 1 saved: Transmitted pulse (real part) vs time")
 # ------------------------------------------------------
@@ -149,7 +149,7 @@ plt.legend()
 plt.tight_layout()
 
 plt.savefig(
-    'plot215_received_signal_single_pulse.png',
+    './Q1/plot215_received_signal_single_pulse.png',
     dpi=300,
     bbox_inches='tight'
 )
@@ -190,7 +190,7 @@ cbar.set_label("Magnitude", fontsize=11, fontweight='bold')
 plt.grid(True, alpha=0.2, color='white', linewidth=0.5)
 
 plt.tight_layout()
-plt.savefig('plot315_range_time_diagram.png', dpi=300, bbox_inches='tight')
+plt.savefig('./Q1/plot315_range_time_diagram.png', dpi=300, bbox_inches='tight')
 plt.show()
 print("✓ Plot 3 saved: Range-Time diagram showing all pulses")
 
