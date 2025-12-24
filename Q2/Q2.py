@@ -23,8 +23,8 @@ targets = {
     'Target 2': {'range': 150.0, 'velocity': -30.0}    # 150 m, receding
 }
 
-# SNR in dB (from Q1)
-SNR_dB = 5
+# SNR in dB 
+SNR_dB = -10
 
 # Calculate maximum unambiguous parameters
 R_max = c * PRI / 2
@@ -125,8 +125,34 @@ print(f"Processing time: {fft_time*1000:.4f} ms")
 # PEAK DETECTION
 # ============================================================================
 
-threshold_mf = 0.5 * np.max(mf_magnitude)
-threshold_fft = 0.5 * np.max(fft_magnitude)
+# 1. Define Desired Probability of False Alarm (Pfa)
+# Standard radar Pfa is often between 1e-4 and 1e-6
+P_fa = 1e-6  
+
+# 2. Calculate Noise Power at Filter Output
+# The matched filter (correlation) sums the energy over the pulse duration.
+# This increases the noise variance by a factor equal to the pulse energy.
+pulse_energy_gain = np.sum(np.abs(transmitted_pulse)**2)
+noise_power_output = noise_power * pulse_energy_gain
+
+# 3. Calculate Scientific Threshold (Rayleigh Distribution)
+# Formula: V_t = sqrt( -2 * sigma^2 * ln(Pfa) )
+# Note: In our complex noise model, total variance (noise_power_output) = 2 * sigma^2
+# So the formula simplifies to: sqrt( -noise_power_output * ln(Pfa) )
+scientific_threshold = np.sqrt(-noise_power_output * np.log(P_fa))
+
+print("\n" + "-" * 40)
+print("THRESHOLD CALCULATION")
+print("-" * 40)
+print(f"Target P_fa:          {P_fa}")
+print(f"Input Noise Power:    {noise_power:.2e}")
+print(f"Filter Gain:          {pulse_energy_gain:.2f}")
+print(f"Calculated Threshold: {scientific_threshold:.4f}")
+
+# Apply the calculated threshold to both methods
+# (Both methods are mathematically equivalent, so they share the threshold)
+threshold_mf = scientific_threshold
+threshold_fft = scientific_threshold
 
 peaks_mf, _ = signal.find_peaks(mf_magnitude, height=threshold_mf,
                                distance=int(pulse_width*fs))
