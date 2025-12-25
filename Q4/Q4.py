@@ -40,7 +40,7 @@ for pulse_idx in range(N_pulses):
         tau = 2 * R / c
         delay_samples = int(tau * fs)
         
-        attenuation = (R_ref / R) ** 2
+        attenuation = (1 / R) ** 2
         
         fd = 2 * v * fc / c
         
