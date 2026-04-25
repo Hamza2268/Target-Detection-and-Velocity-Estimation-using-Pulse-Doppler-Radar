@@ -87,8 +87,18 @@ This module lays the foundation of the radar system. It simulates the transmissi
 
 **Outputs:**
 - `plot115_transmitted_pulse.png` — A step-plot of the transmitted pulse in the time domain.
+  Transmitted Rectangular Pulse (Real Part)
+![Transmitted Pulse](plot115_transmitted_pulse.png)
+
 - `plot215_received_signal_single_pulse.png` — The real part of a single received pulse with annotated target echo positions.
+  Received Signal – Single Pulse Period
+![Received Signal Single Pulse](plot215_received_signal_single_pulse.png)
+
 - `plot315_range_time_diagram.png` — A 2D heatmap showing echo magnitude across all pulses (slow time) vs. range (fast time), revealing the Doppler-induced modulation across pulses.
+ 
+Range–Time Diagram (All Pulses)
+![Range Time Diagram](plot315_range_time_diagram.png)
+ 
 
 ---
 
