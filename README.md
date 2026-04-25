@@ -121,6 +121,8 @@ This module implements two matched filtering approaches for range detection and 
   - Method 1 output with detected peaks and threshold.
   - Method 2 output with detected peaks and threshold.
   - Normalized overlay of both methods zoomed into the target range window (90–160 m) for visual comparison.
+  Comparison: Time-Domain MF vs FFT-Based MF
+![Comparison Methods Radar Detection](Q2/comparison_methods_radar_detection.png)
 
 ---
 
@@ -140,6 +142,8 @@ Building on the range detection from Q2, this module estimates the radial veloci
 
 **Outputs:**
 - `Velocity_Estimation_using_Doppler_Analysis.png` — Per-target subplots showing the Doppler spectrum, the detected velocity peak, the true velocity reference line, estimation error, and motion classification label.
+Velocity Estimation using Doppler Analysis
+![Velocity Estimation using Doppler Analysis](Q3/Velocity_Estimation_using_Doppler_Analysis.png)
 
 ---
 
@@ -162,7 +166,8 @@ The most comprehensive module, Q4 combines range and Doppler processing into a u
 - `Range_Doppler_Map_2D.png` — A side-by-side figure showing:
   - **Full RD Map** — Jet colormap over the complete unambiguous range and velocity space, with detected peaks (red ×) and true target locations (green ★).
   - **Zoomed RD Map** — Magnified view around the target region (80–170 m, –60 to +80 m/s) with annotated detection and ground-truth labels.
-
+2D Range-Doppler Map (Full View + Zoomed)
+![Range Doppler Map 2D](Q4/Range_Doppler_Map_2D.png)
 ---
 
 ## ⚙️ Installation & Setup
